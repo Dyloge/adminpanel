@@ -3,14 +3,21 @@ import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { DataGrid } from '@mui/x-data-grid';
 import { userRows } from '../../../dummyData';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-const UserList = () => {
+export default function UserList() {
+  const [data, setData] = useState(userRows);
+
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', headerName: 'ID', width: 40 },
     {
       field: 'user',
       headerName: 'User',
-      width: 200,
+      width: 150,
       renderCell: (params) => {
         return (
           <div className='userListUser'>
@@ -20,16 +27,16 @@ const UserList = () => {
         );
       },
     },
-    { field: 'email', headerName: 'Email', width: 200 },
+    { field: 'email', headerName: 'Email', width: 120 },
     {
       field: 'status',
       headerName: 'Status',
-      width: 120,
+      width: 70,
     },
     {
       field: 'transaction',
       headerName: 'Transaction Volume',
-      width: 160,
+      width: 120,
     },
     {
       field: 'action',
@@ -41,24 +48,25 @@ const UserList = () => {
             <Link to={'/user/' + params.row.id}>
               <button className='userListEdit'>Edit</button>
             </Link>
-            <DeleteRoundedIcon fontSize='large' className='userListDelete' />
+            <DeleteRoundedIcon
+              className='userListDelete'
+              onClick={() => handleDelete(params.row.id)}
+            />
           </>
         );
       },
     },
   ];
+
   return (
     <div className='userList'>
       <DataGrid
-        rows={userRows}
+        rows={data}
+        disableSelectionOnClick
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        pageSize={8}
         checkboxSelection
-        sx={{ color: 'white' }}
       />
     </div>
   );
-};
-
-export default UserList;
+}
