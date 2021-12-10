@@ -24,7 +24,15 @@ const Chart = ({ title, data, dataKey, grid }) => {
           <XAxis dataKey='name' />
 
           <Line type='monotone' dataKey={dataKey} stroke='#fe5161' />
-          <Tooltip />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: '#9e9e9e',
+              color: '#646464',
+              border: 'none',
+              borderRadius: '5px',
+            }}
+            itemStyle={{ color: 'black' }}
+          />
           {grid && <CartesianGrid stroke='#2b2b2b' strokeDasharray='5 5' />}
         </LineChart>
       </ResponsiveContainer>
