@@ -1,4 +1,5 @@
 import './sidebar.css';
+import { Link } from 'react-router-dom';
 import LineStyleRoundedIcon from '@mui/icons-material/LineStyleRounded';
 import TimelineRoundedIcon from '@mui/icons-material/TimelineRounded';
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
@@ -19,10 +20,15 @@ const Sidebar = () => {
         <div className='sidebarMenu'>
           <h3 className='sidebarTitle'>Dashboard</h3>
           <ul className='sidebarList'>
-            <li className='sidebarListItem active'>
-              <LineStyleRoundedIcon className='sidebarIcon ' fontSize='large' />
-              Home
-            </li>
+            <Link to='/' className='link'>
+              <li className='sidebarListItem active'>
+                <LineStyleRoundedIcon
+                  className='sidebarIcon '
+                  fontSize='large'
+                />
+                Home
+              </li>
+            </Link>
             <li className='sidebarListItem'>
               <TimelineRoundedIcon className='sidebarIcon' fontSize='large' />
               Analytics
@@ -36,17 +42,24 @@ const Sidebar = () => {
         <div className='sidebarMenu'>
           <h3 className='sidebarTitle'>Quick Menu</h3>
           <ul className='sidebarList'>
-            <li className='sidebarListItem'>
-              <PermIdentityRoundedIcon
-                className='sidebarIcon'
-                fontSize='large'
-              />
-              Users
-            </li>
-            <li className='sidebarListItem'>
-              <StorefrontRoundedIcon className='sidebarIcon' fontSize='large' />
-              Products
-            </li>
+            <Link to='/users' className='link'>
+              <li className='sidebarListItem'>
+                <PermIdentityRoundedIcon
+                  className='sidebarIcon'
+                  fontSize='large'
+                />
+                Users
+              </li>
+            </Link>
+            <Link to='/products' className='link'>
+              <li className='sidebarListItem'>
+                <StorefrontRoundedIcon
+                  className='sidebarIcon'
+                  fontSize='large'
+                />
+                Products
+              </li>
+            </Link>
             <li className='sidebarListItem'>
               <AttachMoneyRoundedIcon
                 className='sidebarIcon'
