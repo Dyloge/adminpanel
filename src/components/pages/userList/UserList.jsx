@@ -66,6 +66,7 @@ export default function UserList() {
         columns={columns}
         pageSize={8}
         checkboxSelection
+        sx={{ fontWeight: 'bold', border: 'none' }}
       />
     </div>
   );
