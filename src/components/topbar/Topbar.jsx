@@ -12,7 +12,7 @@ const Topbar = () => {
       <div className='topbarWrapper'>
         <div className='topLeft'>
           <HandymanIcon sx={{ color: '#FE5161' }} fontSize='large' />
-          <span className='brand'>Dyloge Dashboard</span>
+          <span className='brand'>Bani-Ertebat Dashboard</span>
         </div>
         <div className='topRight'>
           <div className='topbarIconContainer'>
